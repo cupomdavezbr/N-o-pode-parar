@@ -1,127 +1,240 @@
-
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Central de Atendimento</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illumine Corretora de Seguros</title>
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-<style>
-:root{
-  --primary:#ec4899;
-  --primary2:#be185d;
-  --text:#0f172a;
-  --muted:#6b7280;
-  --shadow:0 18px 50px rgba(2,6,23,.18);
-}
-*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-body{margin:0;background:linear-gradient(180deg,#fdf2f8,#ffffff);color:var(--text)}
-.container{max-width:1100px;margin:auto;padding:40px 20px}
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+        }
 
-.header{display:flex;align-items:center;gap:14px;margin-bottom:40px}
-.logo{width:46px;height:46px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.1);
-box-shadow:0 10px 25px rgba(0,0,0,.12);object-fit:contain}
-.header h1{margin:0;font-size:22px}
-.header span{font-size:13px;color:var(--muted)}
+        /* Navegação */
+        header {
+            background: #002e5d;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
-.hero h2{font-size:34px;margin:0}
-.hero p{margin-top:12px;line-height:1.5;color:rgba(0,0,0,.7)}
-.btn{display:inline-block;margin-top:18px;padding:14px 24px;border-radius:999px;
-background:linear-gradient(135deg,var(--primary2),var(--primary));
-color:#fff;font-weight:800;text-decoration:none;box-shadow:0 18px 40px rgba(236,72,153,.35)}
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
 
-.card{background:#fff;padding:18px;border-radius:22px;box-shadow:var(--shadow)}
-.service{display:block;padding:14px;margin-bottom:10px;border-radius:16px;
-background:rgba(236,72,153,.08);border:1px solid rgba(236,72,153,.18);
-font-weight:800;text-decoration:none;color:var(--text)}
-.service span{float:right;color:var(--primary2)}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-.split{margin-top:80px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-.split h3{font-size:28px;margin:0}
-.split h4{margin-top:10px;font-size:18px}
-.split p{margin-top:10px;line-height:1.6;color:var(--muted)}
-.image{height:320px;border-radius:22px;
-background:url("https://i.ibb.co/s9vm72D0/naopara.png") center/cover no-repeat;
-box-shadow:var(--shadow)}
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
 
-.values{margin-top:90px;background:#0b1220;color:#fff;padding:60px 20px}
-.values h3{text-align:center;font-size:28px;margin:0}
-.grid{max-width:1100px;margin:40px auto 0;display:grid;
-grid-template-columns:repeat(3,1fr);gap:18px}
-.box{background:rgba(255,255,255,.06);border-radius:18px;padding:20px}
-.box strong{font-size:18px}
-.box p{margin-top:10px;color:rgba(255,255,255,.75);line-height:1.6}
+        .nav-links li {
+            margin-left: 20px;
+        }
 
-footer{background:#fff;border-top:1px solid rgba(0,0,0,.08);
-padding:20px 0;text-align:center;color:#6b7280}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-@media(max-width:900px){
-.hero,.split,.grid{grid-template-columns:1fr}
-.hero h2{font-size:28px}
-}
-</style>
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Seções */
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,46,93,0.8), rgba(0,46,93,0.8)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #002e5d;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* Formulário de Contato */
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            background: #002e5d;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #004080;
+        }
+
+        /* Rodapé / Privacidade */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .privacy-content {
+            font-size: 0.8rem;
+            color: #ccc;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: justify;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-  <div class="header">
-   <img src="https://i.ibb.co/PzxdKP77/4-Kz32-Op-d.webp" class="logo" alt="Logo">
+    <header>
+        <nav>
+            <div class="logo">ILLUMINE SEGUROS</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div>
-      <h1>Central de Atendimento</h1>
-      <span>Serviços e suporte via WhatsApp</span>
-    </div>
-  </div>
+    <section id="inicio" class="hero">
+        <h1>Protegendo o que é importante para você</h1>
+        <p>Soluções inteligentes em seguros com a transparência que você merece.</p>
+    </section>
 
-  <div class="hero">
-    <div>
-      <h2>Solicite Atendimento</h2>
-      <p>Selecione o serviço desejado e inicie o atendimento seguro pelo WhatsApp.</p>
-      <a class="btn" id="btnAtendimento" href="#" target="_blank">Iniciar Atendimento Seguro</a>
-    </div>
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Seguro de Vida</h3>
+                <p>Tranquilidade para você e proteção para quem você mais ama.</p>
+            </div>
+            <div class="card">
+                <h3>Seguro Automóvel</h3>
+                <p>Cobertura completa contra roubos, furtos e acidentes com assistência 24h.</p>
+            </div>
+            <div class="card">
+                <h3>Seguro Residencial</h3>
+                <p>Proteja seu patrimônio e conte com serviços emergenciais para sua casa.</p>
+            </div>
+            <div class="card">
+                <h3>Seguro Empresarial</h3>
+                <p>Soluções personalizadas para garantir a continuidade do seu negócio.</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <a class="service" id="svc2Via" href="#" target="_blank">2ª Via <span>Acessar</span></a>
-      <a class="service" id="svcSuporte" href="#" target="_blank">Solicitar Atendimento <span>Acessar</span></a>
-      <a class="service" id="svcOutros" href="#" target="_blank">Outros Assuntos <span>Acessar</span></a>
-    </div>
-  </div>
+    <section id="quem-somos" style="background-color: #fff;">
+        <h2>Quem Somos</h2>
+        <div style="max-width: 800px; margin: auto; text-align: center;">
+            <p>A <strong>ILLUMINE CORRETORA DE SEGUROS LTDA</strong> nasceu com o propósito de iluminar as escolhas dos nossos clientes. Com anos de experiência no mercado, atuamos de forma ética e consultiva, buscando sempre as melhores coberturas junto às maiores seguradoras do país.</p>
+            <p style="margin-top: 15px;">Nosso compromisso é com a sua segurança e o seu bem-estar, oferecendo um atendimento humanizado e ágil no momento em que você mais precisa.</p>
+        </div>
+    </section>
 
-  <div class="split">
-    <div>
-      <h3>Soluções na palma<br>da sua mão</h3>
-      <h4>Facilite seu atendimento</h4>
-      <p>Tenha um fluxo simples, rápido e seguro para solicitar suporte e serviços.</p>
-      <p>Nós acreditamos que um bom atendimento consiste em oferecer processos simples e seguros,
-      que tornem o dia a dia do cliente mais fácil e que estejam acessíveis nos momentos e nos canais
-      que o cliente preferir.</p>
-    </div>
-    <div class="image"></div>
-  </div>
-</div>
+    <section id="contato">
+        <h2>Fale Conosco</h2>
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <input type="text" placeholder="Assunto (Ex: Cotação de Seguro)">
+                <textarea rows="5" placeholder="Sua Mensagem" required></textarea>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
 
-<div class="values">
-  <h3>Compromissos</h3>
-  <div class="grid">
-    <div class="box"><strong>01 ✓ Transparência</strong><p>Nosso compromisso com a transparência cria confiança.</p></div>
-    <div class="box"><strong>02 ✓ Seriedade</strong><p>Relações sólidas baseadas em integridade.</p></div>
-    <div class="box"><strong>03 ✓ Ética</strong><p>Atuação ética e responsável.</p></div>
-  </div>
-</div>
-
-<footer>© <span id="y"></span> Central de Atendimento • Todos os direitos reservados</footer>
-
-<script>
-const WHATSAPP_NUMERO="5586998122582";
-function linkWhats(s){return "https://wa.me/"+WHATSAPP_NUMERO+"?text="+encodeURIComponent("Olá! Preciso de atendimento sobre: "+s);}
-document.getElementById("btnAtendimento").href="https://wa.me/"+WHATSAPP_NUMERO;
-document.getElementById("svc2Via").href=linkWhats("2ª Via");
-document.getElementById("svcSuporte").href=linkWhats("Atendimento Online");
-document.getElementById("svcOutros").href=linkWhats("Outros Assuntos");
-document.getElementById("y").textContent=new Date().getFullYear();
-</script>
+    <footer>
+        <div id="politicas">
+            <h3>Políticas de Privacidade</h3>
+            <div class="privacy-content">
+                <p>A ILLUMINE CORRETORA DE SEGUROS LTDA valoriza a sua privacidade. Os dados coletados neste site (nome, e-mail e telefone) são utilizados exclusivamente para fins de atendimento e cotação de seguros solicitados pelo usuário. Não compartilhamos suas informações com terceiros para fins publicitários sem sua autorização expressa. Ao utilizar nosso formulário, você concorda com o processamento de seus dados para fins de consultoria de seguros, em conformidade com a LGPD.</p>
+            </div>
+        </div>
+        <hr style="opacity: 0.2; margin: 20px 0;">
+        <p>&copy; 2026 ILLUMINE CORRETORA DE SEGUROS LTDA. CNPJ 04.674.030/0001-34 Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
